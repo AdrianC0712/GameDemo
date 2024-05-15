@@ -40,32 +40,11 @@ public class HelloController {
         ((Button) event.getSource()).setText(String.valueOf(nowSym));
 
         if (!isBoardFull()) {
-            if (gameField[0][0] == gameField[0][1] && gameField[0][0] == gameField[0][2] && (gameField[0][0] == 'X' || gameField[0][0] == 'O')) {
-                isGame = false;
-                alert(gameField[0][0]);
-            } else if (gameField[1][0] == gameField[1][1] && gameField[1][0] == gameField[1][2] && (gameField[1][0] == 'X' || gameField[1][0] == 'O')) {
-                isGame = false;
-                alert(gameField[1][0]);
-            } else if (gameField[2][0] == gameField[2][1] && gameField[2][0] == gameField[2][2] && (gameField[2][0] == 'X' || gameField[2][0] == 'O')) {
-                isGame = false;
-                alert(gameField[2][0]);
-            } else if (gameField[0][0] == gameField[1][0] && gameField[0][0] == gameField[2][0] && (gameField[0][0] == 'X' || gameField[0][0] == 'O')) {
-                isGame = false;
-                alert(gameField[0][0]);
-            } else if (gameField[0][1] == gameField[1][1] && gameField[0][1] == gameField[2][1] && (gameField[0][1] == 'X' || gameField[0][1] == 'O')) {
-                isGame = false;
-                alert(gameField[0][1]);
-            } else if (gameField[0][2] == gameField[1][2] && gameField[0][2] == gameField[2][2] && (gameField[0][2] == 'X' || gameField[0][2] == 'O')) {
-                isGame = false;
-                alert(gameField[0][2]);
-            } else if (gameField[0][0] == gameField[1][1] && gameField[0][0] == gameField[2][2] && (gameField[0][0] == 'X' || gameField[0][0] == 'O')) {
-                isGame = false;
-                alert(gameField[0][0]);
-            } else if (gameField[0][2] == gameField[1][1] && gameField[0][2] == gameField[2][0] && (gameField[0][2] == 'X' || gameField[0][2] == 'O')) {
-                isGame = false;
-                alert(gameField[0][2]);
-            }
-            nowSym = nowSym == 'X' ? 'O' : 'X';
+           gameProces();
+        }
+        else if (isBoardFull() && isGame == true )
+        {
+            gameValidate();
         }
         else if (isBoardFull())
         {
@@ -94,6 +73,39 @@ public class HelloController {
             }
         }
         return true;
+    }
+    private void gameProces()
+    {
+        gameValidate();
+        nowSym = nowSym == 'X' ? 'O' : 'X';
+    }
+    private void gameValidate()
+    {
+        if (gameField[0][0] == gameField[0][1] && gameField[0][0] == gameField[0][2] && (gameField[0][0] == 'X' || gameField[0][0] == 'O')) {
+            isGame = false;
+            alert(gameField[0][0]);
+        } else if (gameField[1][0] == gameField[1][1] && gameField[1][0] == gameField[1][2] && (gameField[1][0] == 'X' || gameField[1][0] == 'O')) {
+            isGame = false;
+            alert(gameField[1][0]);
+        } else if (gameField[2][0] == gameField[2][1] && gameField[2][0] == gameField[2][2] && (gameField[2][0] == 'X' || gameField[2][0] == 'O')) {
+            isGame = false;
+            alert(gameField[2][0]);
+        } else if (gameField[0][0] == gameField[1][0] && gameField[0][0] == gameField[2][0] && (gameField[0][0] == 'X' || gameField[0][0] == 'O')) {
+            isGame = false;
+            alert(gameField[0][0]);
+        } else if (gameField[0][1] == gameField[1][1] && gameField[0][1] == gameField[2][1] && (gameField[0][1] == 'X' || gameField[0][1] == 'O')) {
+            isGame = false;
+            alert(gameField[0][1]);
+        } else if (gameField[0][2] == gameField[1][2] && gameField[0][2] == gameField[2][2] && (gameField[0][2] == 'X' || gameField[0][2] == 'O')) {
+            isGame = false;
+            alert(gameField[0][2]);
+        } else if (gameField[0][0] == gameField[1][1] && gameField[0][0] == gameField[2][2] && (gameField[0][0] == 'X' || gameField[0][0] == 'O')) {
+            isGame = false;
+            alert(gameField[0][0]);
+        } else if (gameField[0][2] == gameField[1][1] && gameField[0][2] == gameField[2][0] && (gameField[0][2] == 'X' || gameField[0][2] == 'O')) {
+            isGame = false;
+            alert(gameField[0][2]);
+        }
     }
     @FXML
     void initialize() {
