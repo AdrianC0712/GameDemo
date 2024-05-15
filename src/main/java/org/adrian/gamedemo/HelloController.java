@@ -1,4 +1,4 @@
-package org.example.demo;
+package org.adrian.gamedemo;
 
 import java.net.URL;
 import java.util.ResourceBundle;
